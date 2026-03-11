@@ -1,0 +1,54 @@
+---
+# 1. ConfigMap: HTML dosyamızı buraya gömüyoruz
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: landing-page-html
+  namespace: default
+data:
+  index.html: |
+    <!DOCTYPE html>...
+    ...</html>
+---
+# 2. Deployment: Nginx pod'unu oluştur ve ConfigMap'i ona bağla
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: landing-page-deployment
+  labels:
+    app: landing-page
+spec:
+  replicas: 1 # Only one replica is needed for a static landing page
+  selector:
+    matchLabels:
+      app: landing-page
+  template:
+    metadata:
+      labels:
+        app: landing-page
+    spec:
+      containers:
+      - name: nginx-server
+        image: nginx:1.25-alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: html-volume
+          mountPath: /usr/share/nginx/html # This is where Nginx serves files
+      volumes:
+      - name: html-volume
+        configMap:
+          name: landing-page-html # Use the ConfigMap we created above
+---
+# 3. Service: Deployment'ı küme içinde erişilebilir kıl
+apiVersion: v1
+kind: Service
+metadata:
+  name: landing-page-service
+spec:
+  selector:
+    app: landing-page
+  ports:
+    - protocol: TCP
+    port: 80
+    targetPort: 80
