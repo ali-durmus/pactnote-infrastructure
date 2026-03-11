@@ -10,7 +10,7 @@ spec:
   ingressClassName: traefik
   tls:
   - hosts:
-    - pactnote.com # THE MAIN DOMAIN
+    - pactnote.com 
     secretName: main-site-tls # Separate TLS secret for the main domain
   rules:
   - host: pactnote.com
@@ -20,6 +20,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: landing-page-service # Connect to the new service
+            name: landing-page-service
             port:
               number: 80
