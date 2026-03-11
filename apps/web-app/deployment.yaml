@@ -5,7 +5,7 @@ metadata:
   labels:
     app: web-app
 spec:
-  replicas: 3 # 3 replicas for high availability
+  replicas: 5
   selector:
     matchLabels:
       app: web-app
