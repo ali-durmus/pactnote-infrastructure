@@ -10,10 +10,10 @@ spec:
   ingressClassName: traefik
   tls:
   - hosts:
-    - pactnote.com # Your professional sub-domain
+    - app.pactnote.com 
     secretName: web-app-tls
   rules:
-  - host: pactnote.com
+  - host: app.pactnote.com
     http:
       paths:
       - path: /
