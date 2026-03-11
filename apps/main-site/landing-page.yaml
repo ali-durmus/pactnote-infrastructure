@@ -12,8 +12,8 @@ data:
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PactNote - Digital Innovation</title>
         <style>
-            body { background: #ffffff; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-            .container { text-align: center; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); max-width: 500px; }
+            body { background: #f4f7f6; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+            .container { text-align: center; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 500px; }
             .logo { max-width: 350px; width: 100%; height: auto; margin-bottom: 20px; }
             h1 { color: #2c3e50; margin: 0 0 10px 0; font-size: 2em; }
             .status { color: #e67e22; font-weight: bold; font-size: 1.1em; margin-bottom: 25px; }
