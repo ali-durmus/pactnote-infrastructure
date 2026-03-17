@@ -2,17 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: air-quality-ingress
+  namespace: default
   annotations:
-    # Traefik'e SSL almasını söylüyoruz
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
-    # Cert-manager'a Let's Encrypt kullanmasını söylüyoruz
-    cert-manager.io/cluster-issuer: letsencrypt-prod 
 spec:
   tls:
   - hosts:
     - air.pactnote.com
-    secretName: air-pactnote-tls # Sertifika buraya kaydedilecek
+    secretName: air-pactnote-tls
   rules:
   - host: air.pactnote.com
     http:
