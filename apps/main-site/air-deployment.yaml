@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: api-container
-        image: alidurmusde/munich-air-api:v7
+        image: alidurmusde/munich-air-api:v8
         ports:
         - containerPort: 8501
 ---
